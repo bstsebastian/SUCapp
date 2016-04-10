@@ -60,7 +60,7 @@ public class login extends AppCompatActivity {
         try {
             Toast.makeText(login.this, "Prueba2", Toast.LENGTH_SHORT).show();
             URL link = new URL(Constantes.IP + Constantes.MODULE_CREDENTIALS + "login.php" + "?username=" + editUser.getText().toString() + "&password=" + editPass.getText().toString());
-            URLConnection connection = (URLConnection) link.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) link.openConnection();
 
             StringBuilder result = new StringBuilder();
             InputStream inputStream = new BufferedInputStream(connection.getInputStream());
@@ -82,46 +82,4 @@ public class login extends AppCompatActivity {
 
         Toast.makeText(login.this, "Estatus: " + status, Toast.LENGTH_SHORT).show();
     }
-
-    /*public class LoginWS extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            JSONObject jsonObject = null;
-            String line;
-            String status = "3";
-
-            try {
-                URL link = new URL(Constantes.IP + "?username=" + params[0] + "&password=" + params[1]);
-                HttpURLConnection  connection = (HttpURLConnection) link.openConnection();
-                connection.setRequestProperty("User-Agent", "Mozilla/5.0"+"(Linux: Android 5.1; es-ES Servicio Web)");
-                StringBuilder result = new StringBuilder();
-                int response = connection.getResponseCode();
-                if (response == HttpURLConnection.HTTP_OK) {
-                    InputStream inputStream = new BufferedInputStream(connection.getInputStream());
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                    while((line = bufferedReader.readLine()) != null)
-                    {
-                        result.append(line);
-                    }
-
-                    jsonObject = new JSONObject(result.toString());
-                    status = jsonObject.getString("status");
-                }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return status;
-        }
-
-        protected void onPostExecute(String s)
-        {
-            textView2.setText(s);
-        }
-    }*/
 }
