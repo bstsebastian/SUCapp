@@ -51,7 +51,8 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String status = attemptLogin();
-                if (status == "1")
+
+                if (status.equals("1"))
                 {
 
                     SharedPreferences prefs = getSharedPreferences("user", Context.MODE_PRIVATE);
@@ -78,19 +79,20 @@ public class login extends AppCompatActivity {
         String status = "3";
 
         try {
-            Toast.makeText(login.this, "Prueba2", Toast.LENGTH_SHORT).show();
             URL link = new URL(Constantes.IP + Constantes.MODULE_CREDENTIALS + "login.php" + "?username=" + editUser.getText().toString() + "&password=" + editPass.getText().toString());
             HttpURLConnection connection = (HttpURLConnection) link.openConnection();
 
             StringBuilder result = new StringBuilder();
             InputStream inputStream = new BufferedInputStream(connection.getInputStream());
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
             while((line = bufferedReader.readLine()) != null)
             {
                 result.append(line);
             }
 
             jsonObject = new JSONObject(result.toString());
+
             status = jsonObject.getString("status");
             
         } catch (MalformedURLException e) {
