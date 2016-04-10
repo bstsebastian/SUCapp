@@ -64,7 +64,6 @@ public class login extends AppCompatActivity {
                     editor.commit();
 
                     Intent intent = new Intent(login.this, index.class);
-                    finish();
                     startActivity(intent);
                 } else {
                     Toast.makeText(login.this, "Por favor verifique sus credenciales", Toast.LENGTH_SHORT).show();

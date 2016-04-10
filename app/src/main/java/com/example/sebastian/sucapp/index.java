@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,21 +30,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class index extends AppCompatActivity {
-    CardView tarjeta;
+    RecyclerView recyclerView;
+    RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index);
 
-        tarjeta = (CardView)findViewById(R.id.card_view);
 
-        tarjeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                consultaMaterias();
-            }
-        });
+        recyclerView = (RecyclerView)findViewById(R.id.Rv);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(index.this,LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        consultaMaterias();
+
     }
 
     public void consultaMaterias() {
@@ -68,13 +70,16 @@ public class index extends AppCompatActivity {
             if (jsonObject != null) {
                 Asignaturas = new ArrayList<Asignatura>();
 
-                JSONArray jsonArray = new JSONArray("asignaturas");
+                JSONArray jsonArray = jsonObject.optJSONArray("asignaturas");
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject asignatura = jsonArray.getJSONObject(i);
                     Asignatura as = new Asignatura(asignatura);
                     Asignaturas.add(as);
                 }
+
+                adapter = new RecyclerAdapter(Asignaturas);
+                recyclerView.setAdapter(adapter);
             }
 
 
@@ -83,7 +88,6 @@ public class index extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Toast.makeText(index.this, "datos: " + Asignaturas.get(0).getId(), Toast.LENGTH_SHORT).show();
 
     }
 
