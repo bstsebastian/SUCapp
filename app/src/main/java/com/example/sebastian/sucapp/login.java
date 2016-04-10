@@ -1,6 +1,8 @@
 package com.example.sebastian.sucapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sebastian.sucapp.webService.Constantes;
+import com.nispok.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,12 +50,29 @@ public class login extends AppCompatActivity {
         controlerbtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attemptLogin();
+                String status = attemptLogin();
+                if (status == "1")
+                {
+
+                    SharedPreferences prefs = getSharedPreferences("user", Context.MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("name", editUser.getText().toString());
+                    editor.putString("password", editPass.getText().toString());
+
+                    editor.commit();
+
+                    Intent intent = new Intent(login.this, index.class);
+                    finish();
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(login.this, "Por favor verifique sus credenciales", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    public void attemptLogin() {
+    public String attemptLogin() {
         JSONObject jsonObject = null;
         String line;
         String status = "3";
@@ -72,6 +92,7 @@ public class login extends AppCompatActivity {
 
             jsonObject = new JSONObject(result.toString());
             status = jsonObject.getString("status");
+            
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -80,6 +101,6 @@ public class login extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Toast.makeText(login.this, "Estatus: " + status, Toast.LENGTH_SHORT).show();
+        return status;
     }
 }
