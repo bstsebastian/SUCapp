@@ -9,4 +9,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sebastian.sucapp.index">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/cardview"/>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2C3E50"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <ImageView
+            android:id="@+id/boton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_computer"
+            android:layout_marginLeft="25dp" />
+
+
+
+
+        <ImageView
+            android:id="@+id/boton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_person"
+            android:layout_marginLeft="85dp"
+            android:layout_toRightOf="@+id/boton1"/>
+
+
+        <ImageView
+            android:id="@+id/boton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_storage"
+            android:layout_marginLeft="85dp"
+            android:layout_toRightOf="@+id/boton2"/>
+
+
+
+
+
+    </RelativeLayout>
+
 </RelativeLayout>
