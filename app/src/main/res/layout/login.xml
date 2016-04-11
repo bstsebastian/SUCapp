@@ -68,7 +68,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="3dp"
             android:textSize="12dp"
-            android:textColor="#9f9691"
+            android:textColor="#9f9692"
             style="?android:attr/borderlessButtonStyle"/>
 
 
