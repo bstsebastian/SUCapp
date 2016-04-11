@@ -5,7 +5,7 @@ package com.example.sebastian.sucapp.webService;
  */
 public class Constantes {
 
-    public static final String IP = "http://suc.itmotions.com/webservice/";
+    public static final String IP = "http://suc.itmotions.net/webservice/";
 
 
     public static final String MODULE_CREDENTIALS = "credentials/";
