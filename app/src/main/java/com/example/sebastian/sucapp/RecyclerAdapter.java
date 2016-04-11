@@ -53,7 +53,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Asigna
             tvTitle = (TextView)itemView.findViewById(R.id.tvTitle);
             tvDescription = (TextView)itemView.findViewById(R.id.tvDescription);
         }
-
     }
 
 }
