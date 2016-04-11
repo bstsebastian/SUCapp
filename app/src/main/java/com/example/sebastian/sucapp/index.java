@@ -46,7 +46,7 @@ public class index extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
-        collapsingToolbarLayout.setTitle("Sistema Único de Calificaciones");
+        collapsingToolbarLayout.setTitle("¡Bienvenido!");
 
         recyclerView = (RecyclerView)findViewById(R.id.Rv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(index.this,LinearLayoutManager.VERTICAL,false);
