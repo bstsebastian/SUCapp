@@ -2,6 +2,7 @@ package com.example.sebastian.sucapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -34,6 +35,7 @@ public class index extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapter adapter;
     Toolbar myToolbar;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,9 @@ public class index extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing);
+        collapsingToolbarLayout.setTitle("Sistema Único de Calificaciones");
 
         recyclerView = (RecyclerView)findViewById(R.id.Rv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(index.this,LinearLayoutManager.VERTICAL,false);
