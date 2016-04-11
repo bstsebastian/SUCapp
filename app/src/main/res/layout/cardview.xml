@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
-<android.support.v7.widget.CardView
-    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp"
-    app:cardElevation="4dp"
-    app:cardUseCompatPadding="true"
-    android:layout_marginBottom="-50dp"
+    android:orientation="vertical"
     >
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="vertical"
-        android:weightSum="10"
-        android:padding="5dp"
-        android:layout_gravity="center_vertical"
-        android:gravity="center|center_horizontal">
+        android:layout_height="130dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true"
+        android:clickable="false">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Materia"
-            android:id="@+id/tvTitle"
-            style="@style/title"
-             />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Profesor"
-            android:id="@+id/tvDescription"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Calidad en el Desarrollo de Software"
+                android:id="@+id/tvTitle"
+                android:layout_alignParentTop="true"
+                android:paddingTop="24dp"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:focusable="false"
+                android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandra Hernández Chacón"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tvDescription"
+                android:layout_below="@+id/tvTitle"
+                android:layout_alignLeft="@+id/tvTitle"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                />
+            <Button
+                android:id="@+id/Pass"
 
-    </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DETALLE"
+                android:textColor="#0288D1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
 
-</android.support.v7.widget.CardView>
-
+    </android.support.v7.widget.CardView>
 </LinearLayout>
