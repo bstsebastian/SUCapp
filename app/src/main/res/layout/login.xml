@@ -7,58 +7,97 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/img2"
+    android:background="#00E676"
     tools:context="com.example.sebastian.sucapp.login"
     android:gravity="center_vertical|center_horizontal">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo2"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true" />
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="300dp"
-        android:layout_height="350dp"
-        android:background="@drawable/esquinas_redondeadas"
-        android:elevation="3dp">
+        android:id="@+id/area_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="300dp">
 
-        <TextView
-            android:layout_width="190dp"
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Sistema Único de Calificaciones"
-            android:textSize="22dp"
-            android:textColor="#2C3E50"
-            android:id="@+id/textView2"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/user1" />
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/user_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/editUser"
-            android:drawableLeft="@drawable/user"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp" />
+            android:layout_marginLeft="32dp">
 
-        <EditText
+            <EditText
+                android:id="@+id/editUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/area_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/area_user"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/img_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/lock1" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pass_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/editPass"
-            android:drawableLeft="@drawable/lock"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="35dp" />
+            android:layout_marginLeft="32dp">
 
+            <EditText
+                android:id="@+id/editPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="139dp"
             android:layout_height="wrap_content"
             android:text="Iniciar Sesión"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
-            android:background="#2C3E50"/>
+            android:background="#2C3E50"
+            android:layout_marginLeft="20dp" />
 
         <Button
             android:id="@+id/Pass"
@@ -66,11 +105,9 @@
             android:layout_height="wrap_content"
             android:text="¿Olvidaste tu Contraseña?"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp"
             android:textSize="12dp"
-            android:textColor="#9f9692"
-            style="?android:attr/borderlessButtonStyle"/>
-
-
+            android:textColor="#FAFAFA"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_marginLeft="15dp" />
     </LinearLayout>
 </RelativeLayout>
