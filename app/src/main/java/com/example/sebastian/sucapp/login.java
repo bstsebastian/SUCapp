@@ -39,7 +39,6 @@ public class login extends AppCompatActivity {
         controlerbtnLogin = (Button)findViewById(R.id.btnLogin);
         editUser = (EditText) findViewById(R.id.editUser);
         editPass = (EditText) findViewById(R.id.editPass);
-        textView2 = (TextView) findViewById(R.id.textView2);
 
         controlerbtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
